@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>SampleSite</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>SamplePage</h1>
+    <nav>
+      <ul>
+        <li><a href="#info">INFO</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#links">LINKS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="wrapper">
+
+    <section id="info">
+      <h1>info</h1>
+      <p>Generated Dummy Text.<br>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was.</p>
+    </section>
+
+    <section id="about">
+      <h1>about</h1>
+      <p>Generated Dummy Text.<br>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was.</p>
+    </section>
+
+    <section id="gallery">
+      <h1>gallery</h1>
+      <p>Generated Dummy Text.<br>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was.</p>
+    </section>
+
+    <section id="links">
+      <h1>links</h1>
+      <p>Generated Dummy Text.<br>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; http://example.com
+  </footer>
+
+</body>
+
+</html>
+
+// Smooth Scrool Sample
+// jQuery v1.9以降
+
+$(function(){
+
+   $('a[href^="#"]').click(function() {
+
+      // 初期設定：移動時間(ms)と頭出し位置
+      var speed = 500;
+      var offset = -160;
+
+      // アンカーを取得
+      var anchor = $(this).attr("href");
+
+      // ターゲットの位置を取得
+      var target = $(anchor == "#" || anchor == "" ? 'html' : anchor);
+      var position = target.offset().top + offset;
+
+      // スクロール（アニメーション）
+      $('body,html').animate({scrollTop:position}, speed, 'swing');
+
+      return false;
+
+   });
+
+});
+
+*{
+  margin:0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 600px;
+  padding: 40px;
+  background-color: #333333;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+header h1{
+  margin-right: auto;
+}
+
+nav {
+  margin-right: 40px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 2.5rem;
+}
+
+nav ul li{
+  margin: 0 .5rem;
+}
+
+nav a{
+  color: white;
+}
+
+#wrapper {
+margin-top: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  padding: 40px;
+  height: 500px;
+  background-color: #dddddd;
+  margin-bottom: 40px;
+}
+
+section h1{
+  margin-bottom: 1rem;
+}
+
+footer{
+  padding: 40px;
+  background-color: #333333;
+  color: white;
+}
